@@ -1,4 +1,5 @@
 <?php
+namespace FoodItems;
 require_once "src/FoodItems/FoodItem.php";
 
 class Fettuccine extends FoodItem

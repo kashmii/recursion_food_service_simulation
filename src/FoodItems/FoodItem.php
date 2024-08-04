@@ -1,4 +1,6 @@
 <?php
+namespace FoodItems;
+
 abstract class FoodItem
 
 {

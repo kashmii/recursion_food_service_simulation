@@ -42,8 +42,11 @@ $interestedTastesMap = [
 ];
 
 // 5. 顧客を作成し、客に注文させ、請求書を出力する
-$Tom = new \Persons\Customer("Tom", 20, "Tokyo", $interestedTastesMap);
+$Tom = new \Persons\Customers\Customer("Tom", 20, "Tokyo", $interestedTastesMap);
 
 print_r($Tom->interestedCategories($saizeriya));
 
 // TODO: 各料理に所要時間を追加する
+
+$invoice = $Tom->order($saizeriya);
+

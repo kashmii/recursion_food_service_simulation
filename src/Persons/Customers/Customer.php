@@ -12,22 +12,22 @@ use Invoices\Invoice;
 
 class Customer extends Person
 {
-  // 属性: array interestedFoodItems
-  protected array $interestedFoodItems;
+  // 属性: array interestedFoodItemsMap
+  protected array $interestedFoodItemsMap;
 
-  public function __construct(string $name, int $age, string $address, array $interestedFoodItems)
+  public function __construct(string $name, int $age, string $address, array $interestedFoodItemsMap)
   {
     // 親クラスのコンストラクタを呼び出す
     parent::__construct($name, $age, $address);
-    $this->interestedFoodItems = $interestedFoodItems;
+    $this->interestedFoodItemsMap = $interestedFoodItemsMap;
   }
 
   // 関数: interestedCategories(Restaurant restaurant): string[]
-  //   restaurant のmenuと interestedFoodItems を比較して、共通する料理を返す
+  //   restaurant のmenuと interestedFoodItemsMap を比較して、共通する料理を返す
   public function interestedCategories(Restaurant $restaurant): array
   {
     $menu_in_lower = $restaurant->getMenuInLower();
-    $result = array_filter($this->interestedFoodItems, function ($interestedFoodItem) use ($menu_in_lower) {
+    $result = array_filter($this->interestedFoodItemsMap, function ($interestedFoodItem) use ($menu_in_lower) {
       return in_array(strtolower($interestedFoodItem), $menu_in_lower);
     }, ARRAY_FILTER_USE_KEY);
 
@@ -47,7 +47,7 @@ class Customer extends Person
     }
 
     // 以下の文章を出力する
-    $keys = array_keys($this->interestedFoodItems);
+    $keys = array_keys($this->interestedFoodItemsMap);
     // カンマ区切りの文字列に変換
     $keysString = implode(", ", $keys);
     echo "{$this->name} wanted to eat {$keysString}.\n";

@@ -63,9 +63,6 @@ class Restaurant
     // }
     echo $chef->prepareFood($foodOrder);
 
-    // $foodOrder
-    // $order = $cashier->generateOrder($categories, $this);
-
     return $cashier->generateInvoice($foodOrder);
   }
 

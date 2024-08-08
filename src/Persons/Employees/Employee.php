@@ -1,5 +1,9 @@
 <?php
-require_once "src/Person.php";
+namespace Persons;
+
+require_once "src/Persons/Person.php";
+
+use Persons\Person;
 
 class Employee extends Person
 {

@@ -43,8 +43,9 @@ class Customer extends Person
     function formatOrder(array $order)
     {
       $formattedItems = [];
-      foreach ($order as $item => $quantity) {
-        $formattedItems[] = "$item x $quantity";
+      $itemCounts = array_count_values($order);
+      foreach ($itemCounts as $item => $count) {
+        $formattedItems[] = "$item x $count";
       }
       return implode(', ', $formattedItems);
     }

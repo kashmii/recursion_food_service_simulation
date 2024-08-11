@@ -47,7 +47,7 @@ class Restaurant
   // ・foodOrder を作成させる
   // ・chef に料理を作らせる
   // ・料理の合計金額, 注文時刻, 予想到着時間を出させる
-  public function order(array $categories): Invoice
+  public function order(array $orderedItems): Invoice
   {
     $cashier = $this->getCashier();
 

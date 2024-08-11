@@ -44,8 +44,6 @@ $interestedTastesMap = [
 // 5. 顧客を作成し、客に注文させ、請求書を出力する
 $Tom = new \Persons\Customers\Customer("Tom", 20, "Tokyo", $interestedTastesMap);
 
-print_r($Tom->interestedCategories($saizeriya));
-
 $invoice = $Tom->order($saizeriya);
 
 $invoice->printInvoice();

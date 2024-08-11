@@ -1,4 +1,5 @@
 <?php
+
 namespace Persons\Employees;
 
 require_once __DIR__ . '/Employee.php';
@@ -18,8 +19,9 @@ class Chef extends Employee
     if (is_array($foodOrder->getItems()) || $foodOrder instanceof \Traversable) {
       foreach ($foodOrder->getItems() as $item) {
         // 特定クラスのインスタンスからそのクラス名の文字列を取得
-        $class_name = get_class($item);
-        echo "{$this->name} was cooking {$class_name}.\n";
+        $className = get_class($item);
+        $shortClassName = str_replace('FoodItems\\', '', $className);
+        echo "{$this->name} was cooking {$shortClassName}.\n";
         $totalTime += $item::COOKING_TIME;
       }
     }

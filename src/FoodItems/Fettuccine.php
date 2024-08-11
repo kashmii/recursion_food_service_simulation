@@ -6,7 +6,7 @@ class Fettuccine extends FoodItem
 {
   // カテゴリを表す定数クラス変数
   const CATEGORY = 'Pastas';
-  private int $cookingTime = 12;
+  const COOKING_TIME =12;
 
 
   protected string $description = "delicious fettuccine";
@@ -17,10 +17,5 @@ class Fettuccine extends FoodItem
   public static function getCategory(): string
   {
     return self::CATEGORY;
-  }
-
-  public function getCookingTime(): int
-  {
-    return $this->cookingTime;
   }
 }

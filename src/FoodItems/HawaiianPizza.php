@@ -7,7 +7,7 @@ class HawaiianPizza extends FoodItem
 {
   // カテゴリを表す定数クラス変数
   const CATEGORY = 'Pizza';
-  private int $cookingTime = 15;
+  const COOKING_TIME = 15;
 
   protected string $description = "delicious hawaiian pizza";
   protected float $price = 18.0;
@@ -17,10 +17,5 @@ class HawaiianPizza extends FoodItem
   public static function getCategory(): string
   {
     return self::CATEGORY;
-  }
-
-  public function getCookingTime(): int
-  {
-    return $this->cookingTime;
   }
 }

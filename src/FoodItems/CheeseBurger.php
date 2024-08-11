@@ -6,7 +6,7 @@ use FoodItems\FoodItem;
 class CheeseBurger extends FoodItem
 {
   const CATEGORY = 'Burgers';
-  private int $cookingTime = 7;
+  const COOKING_TIME = 7;
 
   protected string $description = "delicious cheese burger";
   protected float $price = 10.0;
@@ -14,10 +14,5 @@ class CheeseBurger extends FoodItem
   public static function getCategory(): string
   {
     return self::CATEGORY;
-  }
-
-  public function getCookingTime(): int
-  {
-    return $this->cookingTime;
   }
 }

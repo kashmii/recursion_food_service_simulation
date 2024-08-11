@@ -11,10 +11,10 @@ spl_autoload_register(function ($class) {
 });
 
 // 1. 食べ物を4つ作成
-$cheeseBurger = new \FoodItems\CheeseBurger("Cheese Burger", "delicious cheese burger", 10);
-$fettuccine = new \FoodItems\Fettuccine("Fettuccine", "delicious fettuccine", 15);
-$hawaiianPizza = new \FoodItems\HawaiianPizza("Hawaiian Pizza", "delicious hawaiian pizza", 20);
-$spaghetti = new \FoodItems\Spaghetti("Spaghetti", "delicious spaghetti", 18);
+$cheeseBurger = new \FoodItems\CheeseBurger();
+$fettuccine = new \FoodItems\Fettuccine();
+$hawaiianPizza = new \FoodItems\HawaiianPizza();
+$spaghetti = new \FoodItems\Spaghetti();
 
 // 2. 従業員を2人作成
 $Mike = new \Persons\Employees\Chef("Mike Smith", 40, "Osaka", 1, 30);

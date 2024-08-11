@@ -9,6 +9,10 @@ class Fettuccine extends FoodItem
   private int $cookingTime = 12;
 
 
+  protected string $description = "delicious fettuccine";
+  protected float $price = 15.0;
+
+
   // カテゴリを取得する静的メソッド
   public static function getCategory(): string
   {

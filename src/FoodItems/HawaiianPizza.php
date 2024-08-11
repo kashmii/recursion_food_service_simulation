@@ -9,6 +9,9 @@ class HawaiianPizza extends FoodItem
   const CATEGORY = 'Pizza';
   private int $cookingTime = 15;
 
+  protected string $description = "delicious hawaiian pizza";
+  protected float $price = 18.0;
+
 
   // カテゴリを取得する静的メソッド
   public static function getCategory(): string
@@ -21,4 +24,3 @@ class HawaiianPizza extends FoodItem
     return $this->cookingTime;
   }
 }
-

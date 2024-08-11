@@ -2,17 +2,9 @@
 
 namespace Restaurants;
 
-require_once "src/Persons/Employees/Employee.php";
-require_once "src/FoodItems/FoodItem.php";
-require_once "src/Persons/Employees/Cashier.php";
-require_once "src/Persons/Employees/Chef.php";
-require_once "src/FoodOrders/FoodOrder.php";
-require_once "src/Invoices/Invoice.php";
-
 use Persons\Employees\Cashier;
 use Persons\Employees\Chef;
 use Invoices\Invoice;
-// use FoodItems\FoodItem;
 
 date_default_timezone_set('Asia/Tokyo');
 
@@ -42,7 +34,7 @@ class Restaurant
     return array_map('strtolower', $stringMenu);
   }
 
-  // 関数: order(String[] categories): Invoice
+  // 関数: order(String[] orderedItems): Invoice
   // ・cashier にレジ打ちをさせる
   // ・foodOrder を作成させる
   // ・chef に料理を作らせる
@@ -61,8 +53,6 @@ class Restaurant
 
     return $cashier->generateInvoice($foodOrder);
   }
-
-  // TODO: FoodItem, Invoice
 
   // 従業員からcashierを取得
   private function getCashier(): Cashier | string

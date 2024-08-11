@@ -1,7 +1,6 @@
 <?php
-namespace FoodItems;
 
-require_once "src/FoodItems/FoodItem.php";
+namespace FoodItems;
 
 class HawaiianPizza extends FoodItem
 {
@@ -11,7 +10,6 @@ class HawaiianPizza extends FoodItem
 
   protected string $description = "delicious hawaiian pizza";
   protected float $price = 18.0;
-
 
   // カテゴリを取得する静的メソッド
   public static function getCategory(): string

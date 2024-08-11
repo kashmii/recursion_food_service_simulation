@@ -2,10 +2,6 @@
 
 namespace Persons\Customers;
 
-require_once "src/Persons/Person.php";
-require_once "src/Restaurants/Restaurant.php";
-require_once "src/Invoices/Invoice.php";
-
 use Persons\Person;
 use Restaurants\Restaurant;
 use Invoices\Invoice;
@@ -24,6 +20,20 @@ class Customer extends Person
 
   // 関数: interestedCategories(Restaurant restaurant): string[]
   //   restaurant のmenuと interestedFoodItemsMap を比較して、共通する料理を返す
+
+  // 現状の返り値例 これは間違い
+  // Array
+  // (
+  //   [CheeseBurger] => 2
+  //   [Spaghetti] => 1
+  // )
+
+  // 変更後の返り値例
+  // Array
+  // (
+  // "CheeseBurger", "CheeseBurger", "Spaghetti"
+  // )
+
   public function interestedCategories(Restaurant $restaurant): array
   {
     $orderCategories = [];
@@ -34,6 +44,8 @@ class Customer extends Person
         }
       }
     }
+    // echo "orderCategories\n";
+    // print_r($orderCategories);
     return $orderCategories;
   }
 

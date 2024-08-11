@@ -3,7 +3,6 @@
 namespace Persons\Employees;
 
 require_once __DIR__ . '/Employee.php';
-require_once __DIR__ . '/../../FoodOrders/FoodOrder.php';
 
 use Persons\Employee;
 use FoodOrders\FoodOrder;

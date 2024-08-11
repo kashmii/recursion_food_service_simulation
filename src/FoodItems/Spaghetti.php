@@ -1,7 +1,6 @@
 <?php
-namespace FoodItems;
 
-require_once "src/FoodItems/FoodItem.php";
+namespace FoodItems;
 
 class Spaghetti extends FoodItem
 {

@@ -43,7 +43,7 @@ class Invoice
     $border = "--------------------------------\n";
 
     printf(
-      "%sDate: %s\nFinal Price: $%s\n%s ",
+      "%sDate: %s\nFinal Price: $%s\n%s",
       $border,
       $date,
       number_format($price, 2),

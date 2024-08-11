@@ -47,3 +47,21 @@ $Tom = new \Persons\Customers\Customer("Tom", 20, "Tokyo", $interestedTastesMap)
 $invoice = $Tom->order($saizeriya);
 
 $invoice->printInvoice();
+
+// =========
+// 出力例:
+// =========
+
+// Tom wanted to eat Margherita, CheeseBurger, Spaghetti.
+// Tom looking at the menu, and ordered CheeseBurger x 2, Spaghetti x 1.
+// Anna Hoshino received the order.
+
+// Mike Smith was cooking CheeseBurger.
+// Mike Smith was cooking CheeseBurger.
+// Mike Smith was cooking Spaghetti.
+// Mike Smith took 24 minutes to cook.
+// Anna Hoshino made the invoice.
+// --------------------------------
+// Date: 2024/08/11 17:03:57
+// Final Price: $32.00
+// --------------------------------

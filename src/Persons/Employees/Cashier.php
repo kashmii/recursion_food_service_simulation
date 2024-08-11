@@ -1,9 +1,6 @@
 <?php
-namespace Persons\Employees;
 
-require_once __DIR__ . '/Employee.php';
-require_once __DIR__ . '/../../FoodOrders/FoodOrder.php';
-require_once __DIR__ . '/../../Restaurants/Restaurant.php';
+namespace Persons\Employees;
 
 use Persons\Employee;
 use FoodOrders\FoodOrder;
@@ -15,21 +12,14 @@ date_default_timezone_set('Asia/Tokyo');
 
 class Cashier extends Employee
 {
-    // 関数: generateOrder(string[] ordersFromCustomer, Restaurant restaurant): FoodOrder
-    public function generateOrder(array $ordersFromCustomer, Restaurant $restaurant): FoodOrder
+    // 関数: generateOrder(string[] orderedItems, Restaurant restaurant): FoodOrder
+    public function generateOrder(array $orderedItems): FoodOrder
     {
-        echo "{$this->name} received the order.\n";
-
-        $menu = $restaurant->getMenu();
-        $fixedOrder = [];
-        foreach ($ordersFromCustomer as $category) {
-            foreach ($menu as $menuItem) {
-                if ($menuItem::getCategory() === $category) {
-                    $fixedOrder[] = $menuItem;
-                }
-            }
-        }
-        return new FoodOrder($fixedOrder, date("Y/m/d H:i:s"));
+        // orderedItems がそのままFoodOrderの引数になる
+        echo "{$this->name} received the order.\n\n";
+        // 第1引数は FoodItem クラスのインスタンスの配列
+        $foodOrder = new FoodOrder($orderedItems);
+        return $foodOrder;
     }
 
 }

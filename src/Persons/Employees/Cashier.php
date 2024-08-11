@@ -22,4 +22,17 @@ class Cashier extends Employee
         return $foodOrder;
     }
 
+    // 関数: generateInvoice(FoodOrder order): FoodOrder
+    public function generateInvoice(FoodOrder $order): Invoice
+    {
+        $invoice = new Invoice($order->getOrderTime());
+
+        foreach ($order->getItems() as $item) {
+            $invoice->addPrice($item->getPrice());
+            $invoice->addEstimatedTimeInMinutes($item::COOKING_TIME);
+        }
+
+        echo "{$this->getName()} made the invoice.\n";
+        return $invoice;
+    }
 }

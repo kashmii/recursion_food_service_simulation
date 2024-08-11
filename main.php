@@ -46,7 +46,6 @@ $Tom = new \Persons\Customers\Customer("Tom", 20, "Tokyo", $interestedTastesMap)
 
 print_r($Tom->interestedCategories($saizeriya));
 
-// TODO: 各料理に所要時間を追加する
-
 $invoice = $Tom->order($saizeriya);
 
+$invoice->printInvoice();

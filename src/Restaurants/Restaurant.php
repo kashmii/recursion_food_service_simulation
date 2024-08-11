@@ -50,17 +50,13 @@ class Restaurant
   public function order(array $categories): Invoice
   {
     $cashier = $this->getCashier();
-    // if (is_string($cashier)) {
-    //   return $cashier;
-    // }
+
     // 返り値: FoodOrder
-    $foodOrder = $cashier->generateOrder($categories, $this);
+    $foodOrder = $cashier->generateOrder($orderedItems, $this);
 
     // 料理の数だけ chef にprepareFood をさせる
     $chef = $this->getChef();
-    // if (is_string($chef)) {
-    //   return $chef;
-    // }
+
     echo $chef->prepareFood($foodOrder);
 
     return $cashier->generateInvoice($foodOrder);
@@ -90,4 +86,15 @@ class Restaurant
     return "No chef found";
   }
 
+  public function hasMenu(string $category): bool
+  {
+    // print("hasMenu\n");
+    // print_r($this->menu);
+    foreach ($this->menu as $menu_) {
+      if ($menu_->getName() == $category) {
+        return True;
+      }
+    }
+    return False;
+  }
 }

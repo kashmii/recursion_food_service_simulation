@@ -32,7 +32,7 @@ abstract class FoodItem
   }
 
   private function generateName():string {
-    $tmp =  explode('\\', __CLASS__);
+    $tmp =  explode('\\', get_called_class());
     return end($tmp);
 }
 

@@ -30,4 +30,9 @@ class FoodOrder
   {
     return $this->items;
   }
+
+  public function getOrderTime()
+  {
+    return $this->orderTime;
+  }
 }

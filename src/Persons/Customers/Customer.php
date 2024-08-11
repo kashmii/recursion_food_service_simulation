@@ -26,12 +26,15 @@ class Customer extends Person
   //   restaurant のmenuと interestedFoodItemsMap を比較して、共通する料理を返す
   public function interestedCategories(Restaurant $restaurant): array
   {
-    $menu_in_lower = $restaurant->getMenuInLower();
-    $result = array_filter($this->interestedFoodItemsMap, function ($interestedFoodItem) use ($menu_in_lower) {
-      return in_array(strtolower($interestedFoodItem), $menu_in_lower);
-    }, ARRAY_FILTER_USE_KEY);
-
-    return $result;
+    $orderCategories = [];
+    foreach ($this->interestedFoodItemsMap as $key => $value) {
+      if ($restaurant->hasMenu($key)) {
+        for ($i = 0; $i < $value; $i++) {
+          array_push($orderCategories, $key);
+        }
+      }
+    }
+    return $orderCategories;
   }
 
   function order(Restaurant $restaurant): Invoice
@@ -52,12 +55,10 @@ class Customer extends Person
     $keysString = implode(", ", $keys);
     echo "{$this->name} wanted to eat {$keysString}.\n";
 
-    $array = $this->interestedCategories($restaurant);
-    $orderString = formatOrder($array);
+    $commonFoodItems = $this->interestedCategories($restaurant);
+    $orderString = formatOrder($commonFoodItems);
     echo "{$this->name} looking at the menu, and ordered {$orderString}.\n";
 
-    // TODO: 修正要
-    return new Invoice(0, "2021-01-01 12:00:00", 30);
+    return $restaurant->order($commonFoodItems);
   }
 };
-

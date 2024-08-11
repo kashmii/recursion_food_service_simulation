@@ -14,14 +14,15 @@ class Chef extends Employee
   {
     // $foodOrder の items を取得し、それらの名前を取得
     // その名前を規定の文字列に追加し、返す
-    $result = "";
     $totalTime = 0;
-    foreach ($foodOrder as $item) {
-      $result .= "{$this->name} was cooking {$item->name}.\n";
-      $totalTime += $item->getCookingTime();
+    if (is_array($foodOrder->getItems()) || $foodOrder instanceof \Traversable) {
+      foreach ($foodOrder->getItems() as $item) {
+        // 特定クラスのインスタンスからそのクラス名の文字列を取得
+        $class_name = get_class($item);
+        echo "{$this->name} was cooking {$class_name}.\n";
+        $totalTime += $item::COOKING_TIME;
+      }
     }
-    // 時間が加算されてない
-    $result .= "{$this->name} took {$totalTime} minutes to cook.\n";
-    return $result;
+    return "{$this->name} took {$totalTime} minutes to cook.\n";
   }
 }

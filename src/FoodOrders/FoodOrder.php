@@ -1,19 +1,29 @@
 <?php
-namespace FoodOrders;
 
-require_once "src/FoodItems/FoodItem.php";
+namespace FoodOrders;
 
 class FoodOrder
 {
   // 属性: FoodItem[] items, Timestamp orderTime
-  protected array $items;
+  private array $items = [];
   protected string $orderTime;
 
   protected int $estimatedTimeInMinutes;
   public function __construct(array $items)
   {
-    $this->items = $items;
+    $this->setItemArray($items);
     $this->orderTime = date("Y/m/d H:i:s");
+  }
+
+  /**
+   * 文字列の配列から、FoodItemクラスのインスタンスをitemsに格納する
+   */
+  private function setItemArray(array $items): void
+  {
+    foreach ($items as $item) {
+      $fullClassName = "FoodItems\\" . $item;
+      array_push($this->items, new $fullClassName());
+    }
   }
 
   public function getItems()
